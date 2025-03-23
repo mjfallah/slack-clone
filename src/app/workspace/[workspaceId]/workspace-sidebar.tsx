@@ -7,9 +7,10 @@ import {
 } from "lucide-react";
 
 import { useWorkspaceId } from "@/hooks/use-workspaceId";
+import { useChannelId } from "@/hooks/use-channelId";
 import { useCurrentMember } from "@/features/members/api/use-current-member";
 import { useGetWorkspace } from "@/features/workspaces/api/use-get-workspace";
-import { useGeChannels } from "@/features/channels/api/use-get-channels";
+import { useGetChannels } from "@/features/channels/api/use-get-channels";
 import { useCreateChannelModal } from "@/features/channels/store/use-create-channel-modal";
 
 import { WorkspaceHeader } from "./workspace-header";
@@ -20,14 +21,17 @@ import { UserItem } from "./user-item";
 
 export const WorkspaceSidebar = () => {
   const workspaceId = useWorkspaceId();
+  const channelId = useChannelId();
+
   const [_open, setOpen] = useCreateChannelModal();
+
   const { data: member, isLoading: memberLoading } = useCurrentMember({
     workspaceId,
   });
   const { data: workspace, isLoading: workspaceLoading } = useGetWorkspace({
     id: workspaceId,
   });
-  const { data: channels, isLoading: channelsLoading } = useGeChannels({
+  const { data: channels, isLoading: channelsLoading } = useGetChannels({
     workspaceId,
   });
   const { data: members, isLoading: membersLoading } = useGetMembers({
@@ -70,6 +74,7 @@ export const WorkspaceSidebar = () => {
             label={item.name}
             icon={HashIcon}
             id={item._id}
+            variant={channelId === item?._id ? "active" : "default"}
           />
         ))}
       </WorkspaceSection>
