@@ -127,3 +127,30 @@ body,
     @apply bg-background text-foreground;
   }
 }
+
+/* ----------------------------------------------  */
+
+/* this is related to react-verification-input */
+
+/* Container styling */
+.vi__container {
+  display: flex;
+  gap: 0.5rem; /* Tailwind's gap-x-2 */
+}
+/* Default character styles */
+.vi__character {
+  @apply uppercase h-auto rounded-md border border-gray-300 flex items-center justify-center text-lg font-medium text-gray-500;
+}
+/* Inactive character */
+.vi__character--inactive {
+  @apply bg-muted;
+}
+/* Selected character */
+.vi__character--selected {
+  @apply bg-white text-black;
+}
+/* Filled character */
+.vi__character--filled {
+  @apply bg-white text-black;
+}
+/* ----------------------------------------------  */

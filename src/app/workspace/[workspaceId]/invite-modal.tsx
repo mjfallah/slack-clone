@@ -73,7 +73,7 @@ export const InviteModal = ({
           </DialogHeader>
           <div className="flex flex-col gap-y-4 items-center justify-center py-10">
             {isPending ? (
-              <Loader className="size-8 animate-spin" />
+              <Loader className="my-7 size-8 animate-spin" />
             ) : (
               <>
                 <p className="text-4xl font-bold tracking-widest uppercase">
