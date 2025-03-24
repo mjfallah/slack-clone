@@ -64,13 +64,13 @@ export const getById = query({
     if (!userId) {
       throw new Error("Unauthorized");
     }
-    const members = await ctx.db
+    const member = await ctx.db
       .query("members")
       .withIndex("by_workspace_id_user_id", (q) =>
         q.eq("workspaceId", args.id).eq("userId", userId)
       )
       .unique();
-    if (!members) {
+    if (!member) {
       return null;
     }
     return await ctx.db.get(args.id);
@@ -86,13 +86,13 @@ export const update = mutation({
     if (!userId) {
       throw new Error("Unauthorized");
     }
-    const members = await ctx.db
+    const member = await ctx.db
       .query("members")
       .withIndex("by_workspace_id_user_id", (q) =>
         q.eq("workspaceId", args.id).eq("userId", userId)
       )
       .unique();
-    if (!members || members.role !== "admin") {
+    if (!member || member.role !== "admin") {
       throw new Error("Unauthorized");
     }
     await ctx.db.patch(args.id, {
