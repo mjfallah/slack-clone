@@ -53,5 +53,7 @@ export const useGenerateUploadUrl = () => {
     isError,
     isSuccess,
     isSettled,
+    data,
+    error,
   };
 };
