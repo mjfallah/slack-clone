@@ -7,7 +7,6 @@ A feature-rich Slack clone built with **Next.js 15, React, Tailwind CSS, ShadCN,
 - 🔹 **Real-time messaging** using Convex
 - 🔹 **Channel management** (create, join, and leave channels)
 - 🔹 **Responsive UI** with Tailwind CSS & ShadCN components
-- 🔹 **Dark mode support**
 - 🔹 **File uploads** for seamless media sharing
 - 🔹 **Optimized for performance** with Next.js 15
 
