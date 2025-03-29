@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+🚀 Slack Clone
 
-## Getting Started
+A feature-rich Slack clone built with Next.js 15, React, Tailwind CSS, ShadCN, Zustand, and Convex. This project replicates core Slack functionalities, providing an intuitive and seamless team communication experience.
 
-First, run the development server:
+🌟 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+🔹 Real-time messaging using Convex
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🔹 Channel management (create, join, and leave channels)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🔹 Responsive UI with Tailwind CSS & ShadCN components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🔹 Dark mode support
 
-## Learn More
+🔹 File uploads for seamless media sharing
 
-To learn more about Next.js, take a look at the following resources:
+🔹 Optimized for performance with Next.js 15
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🛠️ Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Frontend: Next.js 15, React, TypeScript, ShadCN, Tailwind CSS
 
-## Deploy on Vercel
+State Management: Zustand
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Backend & Database: Convex
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Real-time Communication: Convex
+
+Authentication: @auth/core
+
+🌍 Live Demo
+
+Check out the live version of this project:
+
+🔗 [Slack Clone Live](https://slack-clone-rho-ten.vercel.app)
+
+🚀 Getting Started
+
+Prerequisites
+
+Node.js 18+
+
+Package manager (npm, yarn, or pnpm)
+
+Installation
+
+# Clone the repository
+
+git clone https://github.com/mjfallah/slack-clone.git
+cd slack-clone
+
+# Install dependencies
+
+yarn install # or npm install or pnpm install
+
+Environment Variables
+
+Create a .env.local file and configure it with the required API keys:
+
+NEXT_PUBLIC_AUTH_SECRET=your-auth-secret
+CONVEX_DEPLOY_KEY=your-convex-deploy-key
+
+Running the Project
+
+# Start the development server
+
+yarn dev # or npm run dev or pnpm dev
+
+The app should now be running on http://localhost:3000.
+
+📸 Feature Preview
+
+![Feature Preview 1](./intro1.gif)
+![Feature Preview 2](./intro2.gif)
+![Feature Preview 3](./intro3.gif)
+
+🤝 Contributing
+
+Pull requests are welcome! For major changes, please open an issue first to discuss what you’d like to change.
+
+📜 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+🎉 Thank you for checking out this project! Feel free to give a ⭐ if you find it useful!
