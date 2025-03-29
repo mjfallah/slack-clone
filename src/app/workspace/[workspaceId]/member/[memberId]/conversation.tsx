@@ -10,6 +10,7 @@ import { MessageList } from "@/components/message-list";
 import { useMemberId } from "@/hooks/use-member-id";
 import { useGetMember } from "@/features/members/api/use-get-member";
 import { useGetMessages } from "@/features/messages/api/use-get-messages";
+import { usePanel } from "@/hooks/use-panel";
 
 interface ConversationProps {
   conversationId: Id<"conversations">;
@@ -17,6 +18,9 @@ interface ConversationProps {
 
 export const Conversation = ({ conversationId }: ConversationProps) => {
   const memberId = useMemberId();
+
+  const { onOpenProfile } = usePanel();
+
   const { data: member, isLoading: isLoadingMember } = useGetMember({
     id: memberId,
   });
@@ -38,7 +42,7 @@ export const Conversation = ({ conversationId }: ConversationProps) => {
       <Header
         memberName={member?.user.name}
         memberImage={member?.user.image}
-        onClick={() => {}}
+        onClick={() => onOpenProfile(memberId)}
       />
       <MessageList
         variant="conversation"
