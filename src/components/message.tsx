@@ -12,6 +12,7 @@ import { Hint } from "./hint";
 import { Thumbnail } from "./thumbnail";
 import { Toolbar } from "./toolbar";
 import { Reactions } from "./reactions";
+import { ThreadBar } from "./thread-bar";
 
 import { Avatar, AvatarImage, AvatarFallback } from "./ui/avatar";
 
@@ -47,6 +48,7 @@ interface MessageProps {
   hideThreadButton?: boolean;
   threadCount?: number;
   threadImage?: string;
+  threadName?: string;
   threadTimeStamp?: number;
 }
 
@@ -67,6 +69,7 @@ export const Message = ({
   isCompact,
   threadCount,
   threadImage,
+  threadName,
   threadTimeStamp,
 }: MessageProps) => {
   const { parentMessageId, onOpenMessage, onClose } = usePanel();
@@ -169,6 +172,13 @@ export const Message = ({
                   </span>
                 ) : null}
                 <Reactions data={reactions} onChange={handleReaction} />
+                <ThreadBar
+                  count={threadCount}
+                  image={threadImage}
+                  name={threadName}
+                  timeStamp={threadTimeStamp}
+                  onClick={() => onOpenMessage(id)}
+                />
               </div>
             )}
           </div>
@@ -240,6 +250,13 @@ export const Message = ({
                 <span className="text-xs text-muted-foreground">(edited)</span>
               ) : null}
               <Reactions data={reactions} onChange={handleReaction} />
+              <ThreadBar
+                count={threadCount}
+                image={threadImage}
+                name={threadName}
+                timeStamp={threadTimeStamp}
+                onClick={() => onOpenMessage(id)}
+              />
             </div>
           )}
         </div>
