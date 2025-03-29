@@ -13,6 +13,7 @@ import { useCurrentMember } from "@/features/members/api/use-current-member";
 
 import { Message } from "./message";
 import { ChannelHero } from "./channel-hero";
+import { ConversationHero } from "./conversation-hero";
 
 const formatDateLabel = (dateStr: string) => {
   const date = new Date(dateStr);
@@ -37,13 +38,13 @@ interface MessageListProps {
 
 export const MessageList = ({
   memberName,
+  memberImage,
   canLoadMore,
   data,
   isLoadingMore,
   loadMore,
   channelCreationTime,
   channelName,
-  memberImage,
   variant = "channel",
 }: MessageListProps) => {
   const [editingId, setEditingId] = useState<Id<"messages"> | null>(null);
@@ -137,6 +138,9 @@ export const MessageList = ({
       )}
       {variant === "channel" && channelName && channelCreationTime && (
         <ChannelHero name={channelName} creationTime={channelCreationTime} />
+      )}
+      {variant === "conversation" && (
+        <ConversationHero name={memberName} image={memberImage} />
       )}
     </div>
   );

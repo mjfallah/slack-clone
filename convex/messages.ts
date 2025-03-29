@@ -73,7 +73,7 @@ export const create = mutation({
     body: v.string(),
     image: v.optional(v.id("_storage")),
     workspaceId: v.id("workspaces"),
-    channelId: v.id("channels"),
+    channelId: v.optional(v.id("channels")),
     conversationId: v.optional(v.id("conversations")),
     parentMessageId: v.optional(v.id("messages")),
   },
