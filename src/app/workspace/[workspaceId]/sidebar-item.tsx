@@ -7,6 +7,8 @@ import { IconType } from "react-icons/lib";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
+import { toast } from "sonner";
+
 import { useWorkspaceId } from "@/hooks/use-workspaceId";
 
 const sidebarItemVariants = cva(
@@ -38,6 +40,21 @@ export const SidebarItem = ({
   variant,
 }: SidebarItemProps) => {
   const workspaceId = useWorkspaceId();
+
+  if (id === "threads" || id === "drafts") {
+    return (
+      <Button
+        variant="transparent"
+        size="sm"
+        className={cn(sidebarItemVariants({ variant }))}
+        
+        onClick={() => toast.warning("Under Development...")}
+      >
+        <Icon className="size-3.5 mr-1 shrink-0" />
+        <span className="text-sm truncate">{label}</span>
+      </Button>
+    );
+  }
   return (
     <Button
       variant="transparent"
