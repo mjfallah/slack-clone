@@ -13,6 +13,7 @@ import { Toolbar } from "./toolbar";
 import { Sidebar } from "./sidebar";
 import { WorkspaceSidebar } from "./workspace-sidebar";
 import { Thread } from "@/features/messages/components/thread";
+import { Profile } from "@/features/members/components/profile";
 
 import { usePanel } from "@/hooks/use-panel";
 
@@ -21,9 +22,9 @@ interface WorkspaceIdLayoutProps {
 }
 
 const WorkspaceIdLayout = ({ children }: WorkspaceIdLayoutProps) => {
-  const { parentMessageId, onOpenMessage, onClose } = usePanel();
+  const { parentMessageId, profileMemberId, onClose } = usePanel();
 
-  const showPanel = !!parentMessageId;
+  const showPanel = !!parentMessageId || !!profileMemberId;
 
   return (
     <div className="h-full">
@@ -50,6 +51,11 @@ const WorkspaceIdLayout = ({ children }: WorkspaceIdLayoutProps) => {
                 {parentMessageId ? (
                   <Thread
                     messageId={parentMessageId as Id<"messages">}
+                    onClose={onClose}
+                  />
+                ) : profileMemberId ? (
+                  <Profile
+                    memberId={profileMemberId as Id<"members">}
                     onClose={onClose}
                   />
                 ) : (
